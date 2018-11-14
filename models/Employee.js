@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const Employee = new Schema({
     email: String,
     fullName: String,
-    isAdmin: False,
+    isAdmin: Boolean,
     reviews: [
         {
             type: Schema.Types.ObjectId,

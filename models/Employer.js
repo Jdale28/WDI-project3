@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const Employer = new Schema({
     email: String,
     fullName: String,
-    isAdmin: True,
+    isAdmin: Boolean,
     employees: [
         {
             type: Schema.Types.ObjectId,

@@ -3,6 +3,7 @@ const router = express.Router()
 const employerController = require('../controllers/employerController')
 const employeeController = require('../controllers/employeeController')
 const reviewController = require('../controllers/reviewController')
+const responsibilityController = require('../controllers/responsibilityController')
 
 router.get('/api/employers', employerController.index)
 router.post('/api/employers/', employerController.create)
@@ -21,5 +22,11 @@ router.post('/api/employers/:employerId/employees/:employeeId/reviews', reviewCo
 router.get('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId', reviewController.show)
 router.patch('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId', reviewController.update)
 router.delete('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId', reviewController.delete)
+
+router.get('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId/responsibilities', responsibilityController.index)
+router.post('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId/responsibilities', responsibilityController.create)
+router.get('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId/responsibilities/:responsibilityId', responsibilityController.show)
+router.patch('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId/responsibilities/:responsibilityId', responsibilityController.update)
+router.delete('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId/responsibilities/:responsibilityId', responsibilityController.delete)
 
 module.exports = router

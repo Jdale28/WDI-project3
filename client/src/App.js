@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import LogInPage from './components/LogInPage';
 
@@ -8,6 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
+          <h1>Hello from APP</h1>
           <LogInPage/>
         </header>
       </div>

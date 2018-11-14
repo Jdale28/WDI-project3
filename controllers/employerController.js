@@ -1,4 +1,5 @@
 const Employee = require('../models/Employee')
+const Employer = require('../models/Employer')
 const Review = require('../models/Review')
 
 const employerController = {
@@ -9,7 +10,7 @@ const employerController = {
             })
     },
     show: (req, res) => {
-        Employer.findById(req.params.employerId).populate('reviews')
+        Employer.findById(req.params.employerId).populate('employees')
             .then((employer) => {
                 res.send(employer)
             })

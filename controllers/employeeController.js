@@ -36,10 +36,8 @@ const employeeController = {
     let employerId = req.params.employerId
     Employer.findById(employerId)
       .then((employer) => {
-        console.log(employer)
         Employee.create(req.body)
           .then((newEmployee) => {
-            console.log(newEmployee)
             employer.employees.push(newEmployee)
             employer.save()
             res.send(newEmployee)

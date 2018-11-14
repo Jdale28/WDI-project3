@@ -16,7 +16,7 @@ const employerController = {
             })
     },
     update: (req, res) => {
-        Employer.findByIdAndUpdate(req.params.employerId, req.body)
+        Employer.findByIdAndUpdate(req.params.employerId, req.body, {new: true})
             .then((updatedEmployer) => {
                 updatedEmployer.save()
                 res.send(updatedEmployer)

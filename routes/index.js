@@ -19,7 +19,7 @@ router.delete('/api//employers/:employerId/employees/:employeeId', employeeContr
 router.get('/api/employers/:employerId/employees/:employeeId/reviews', reviewController.index)
 router.post('/api/employers/:employerId/employees/:employeeId/reviews', reviewController.create)
 router.get('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId', reviewController.show)
-// router.patch('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId', reviewController.update)
-// router.delete('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId', reviewController.delete)
+router.patch('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId', reviewController.update)
+router.delete('/api/employers/:employerId/employees/:employeeId/reviews/:reviewId', reviewController.delete)
 
 module.exports = router

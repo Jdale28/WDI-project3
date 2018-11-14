@@ -17,21 +17,21 @@ const reviewController = {
       res.send(review);
     });
   },
-  //   delete: (req, res) => {
-  //     let reviewId = req.params.reviewId
-  //     Review.findByIdAndDelete(reviewId)
-  //       .then(() => {
-  //         res.send(200)
-  //       })
-  //   },
-  //   update: (req, res) => {
-  //     let reviewId = req.params.reviewId
-  //     Review.findByIdAndUpdate(reviewId, req.body, { new: true })
-  //       .then((updatedReview) => {
-  //         updatedReview.save()
-  //         res.send(updatedReview)
-  //       })
-  //   },
+    delete: (req, res) => {
+      let reviewId = req.params.reviewId
+      Review.findByIdAndDelete(reviewId)
+        .then(() => {
+          res.send(200)
+        })
+    },
+    update: (req, res) => {
+      let reviewId = req.params.reviewId
+      Review.findByIdAndUpdate(reviewId, req.body, { new: true })
+        .then((updatedReview) => {
+          updatedReview.save()
+          res.send(updatedReview)
+        })
+    },
   create: (req, res) => {
     let employerId = req.params.employerId;
     Employer.findById(employerId).then(employer => {

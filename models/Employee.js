@@ -1,10 +1,10 @@
 const mongoose = require('../db/connections')
 const Schema = mongoose.Schema
 
-const User = new Schema({
+const Employee = new Schema({
     email: String,
     fullName: String,
-    isAdmin: Boolean,
+    isAdmin: False,
     reviews: [
         {
             type: Schema.Types.ObjectId,
@@ -13,4 +13,4 @@ const User = new Schema({
     ]
 })
 
-module.exports = mongoose.model('User', User)
+module.exports = mongoose.model('Employee', Employee)

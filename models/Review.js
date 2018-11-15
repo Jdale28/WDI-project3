@@ -2,8 +2,8 @@ const mongoose = require("../db/connections");
 const Schema = mongoose.Schema;
 
 const Review = new Schema({
-  employee: String,
-  jobTitle: String,
+  employeeFullName: String,
+  employeeJobTitle: String,
   responsibilities: [
     {
       type: Schema.Types.ObjectId,

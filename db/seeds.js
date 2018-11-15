@@ -15,10 +15,10 @@ const jordanRespThree = new Responsibility({
 })
 
 const jordanOne = new Review({
-    employee: "Jordan Dale",
-    jobTitle: 'Sr Web Developer',
+    employeeFullName: "Jordan Dale",
+    employeeJobTitle: 'Sr. Web Developer',
     responsibilities: [jordanRespOne, jordanRespTwo, jordanRespThree],
-    comment: "Jordan is amzing, Gold Star A+"
+    comment: "Jordan is amazing, Gold Star A+"
 })
 
 const richardRespOne = new Responsibility({
@@ -32,8 +32,8 @@ const richardRespThree = new Responsibility({
 })
 
 const richardOne = new Review({
-    employee: "Richard Almonte",
-    jobTitle: 'Jr. Web Developer',
+    employeeFullName: "Richard Almonte",
+    employeeJobTitle: 'Jr. Web Developer',
     responsibilities: [richardRespOne, richardRespTwo, richardRespThree],
     comment: "I recommend Richard be immediately terminated"
 })
@@ -41,6 +41,7 @@ const richardOne = new Review({
 const jordan = new Employee({
     email: 'jordan.dale2@gmail.com',
     fullName: 'Jordan Dale',
+    jobTitle: 'Sr. Web Developer',
     isAdmin: false,
     reviews: [jordanOne]
 })
@@ -48,6 +49,7 @@ const jordan = new Employee({
 const richard = new Employee({
     email: 'richard.almonte@gmail.com',
     fullName: 'Richard Almonte',
+    jobTitle: 'Jr. Web Developer',
     isAdmin: false,
     reviews: [richardOne]
 })

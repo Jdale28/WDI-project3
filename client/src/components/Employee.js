@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 class Employee extends Component {
   state = {
     employee: {
-      reviews: []
-    }
+    },
+    reviews: []
   };
 
   componentDidMount() {
@@ -19,17 +19,17 @@ class Employee extends Component {
     const url = `/api/employers/${employerId}/employees/${employeeId}`;
     axios.get(url).then(res => {
       console.log(res.data);
-      this.setState({ employee: res.data });
+      this.setState({ employee: res.data, reviews: res.data.reviews });
     });
   };
 
   render() {
     return (
       <div>
-        <h4>Your reviews are below:</h4>
-        {this.state.employee.reviews.map(review => (
+        <h4>{this.state.employee.fullName}, your reviews are below:</h4>
+        {this.state.reviews.map(review => (
           <div key={review._id}>
-            <h2>{review._id}</h2>
+            <h2>{review.comment}</h2>
           </div>
         ))}
       </div>

@@ -13,9 +13,7 @@ const responsibilityController = {
       });
   },
   show: (req, res) => {
-    console.log("hello");
     let responsibilityId = req.params.responsibilityId;
-    console.log(responsibilityId);
     Responsibility.findById(responsibilityId).then(responsibility => {
       res.send(responsibility);
     });

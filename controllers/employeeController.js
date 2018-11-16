@@ -12,7 +12,7 @@ const employeeController = {
   },
   show: (req, res) => {
     let employeeId = req.params.employeeId
-    Employee.findById(employeeId).populate('reviews')
+    Employee.findById(employeeId).populate({path: 'reviews', populate: {path: 'responsibilities'}})
       .then((employee) => {
         res.send(employee)
       })

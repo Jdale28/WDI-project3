@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import EmployeeReview from "./EmployeeReview";
 
 class Employee extends Component {
   state = {
-    employee: {
-    },
+    employee: {},
     reviews: []
   };
 
@@ -24,14 +24,11 @@ class Employee extends Component {
   };
 
   render() {
+
     return (
       <div>
         <h4>{this.state.employee.fullName}, your reviews are below:</h4>
-        {this.state.reviews.map(review => (
-          <div key={review._id}>
-            <h2>{review.comment}</h2>
-          </div>
-        ))}
+        <EmployeeReview reviews={this.state.reviews}/>
       </div>
     );
   }

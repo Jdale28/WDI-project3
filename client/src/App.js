@@ -11,6 +11,7 @@ import { createGlobalStyle } from "styled-components";
 
 const Global = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Poppins');
+  /* @import url('#'); */
   
   body {
     margin: 0;

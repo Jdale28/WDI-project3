@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const Review = new Schema({
   employeeFullName: String,
   employeeJobTitle: String,
+  reviewYear: String,
   responsibilities: [
     {
       type: Schema.Types.ObjectId,

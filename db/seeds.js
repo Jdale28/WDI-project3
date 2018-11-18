@@ -17,6 +17,7 @@ const jordanRespThree = new Responsibility({
 const jordanOne = new Review({
     employeeFullName: "Jordan Dale",
     employeeJobTitle: 'Sr. Web Developer',
+    reviewYear: "2018",
     responsibilities: [jordanRespOne, jordanRespTwo, jordanRespThree],
     comment: "Jordan is amazing, Gold Star A+"
 })
@@ -34,8 +35,17 @@ const richardRespThree = new Responsibility({
 const richardOne = new Review({
     employeeFullName: "Richard Almonte",
     employeeJobTitle: 'Jr. Web Developer',
+    reviewYear: "2017",
     responsibilities: [richardRespOne, richardRespTwo, richardRespThree],
     comment: "I recommend Richard be immediately terminated"
+})
+
+const richardTwo = new Review({
+    employeeFullName: "Richard Almonte",
+    employeeJobTitle: 'Jr. Web Developer',
+    reviewYear: "2018",
+    responsibilities: [richardRespOne, richardRespTwo],
+    comment: "How is this guy still not terminated?"
 })
 
 const jordan = new Employee({
@@ -51,7 +61,7 @@ const richard = new Employee({
     fullName: 'Richard Almonte',
     jobTitle: 'Jr. Web Developer',
     isAdmin: false,
-    reviews: [richardOne]
+    reviews: [richardOne, richardTwo]
 })
 
 const spencer = new Employer({
@@ -65,7 +75,7 @@ Employer.remove({})
     .then(() => Employee.remove({}))
     .then(() => Review.remove({}))
     .then(() => Responsibility.remove({}))
-    .then(() => Review.insertMany([jordanOne, richardOne]))
+    .then(() => Review.insertMany([jordanOne, richardOne, richardTwo]))
     .then(() => Responsibility.insertMany([jordanRespOne, jordanRespTwo, jordanRespThree, richardRespOne, richardRespTwo, richardRespThree]))
     .then(() => Employee.insertMany([jordan, richard]))
     .then(() => spencer.save())

@@ -17,9 +17,8 @@ class Employer extends Component {
       email: '',
       jobTitle: '',
     },
-    employer: {
-      employees: [{}],
-    },
+    employer: {},
+    employees: [{}]
   };
 
   componentDidMount() {
@@ -31,15 +30,13 @@ class Employer extends Component {
     const url = `/api/employers/${employerId}`;
     axios.get(url).then(res => {
       console.log(res.data);
-      this.setState({ employer: res.data });
+      this.setState({ employer: res.data, employees: res.data.employees });
     });
   };
 
   handleChange = (event) => {
     const updatedNewEmployee = {...this.state.newEmployee}
-    event.target.name === "group" ? 
-      updatedNewEmployee[event.target.name] = event.target.checked 
-    : updatedNewEmployee[event.target.name] = event.target.value
+    updatedNewEmployee[event.target.name] = event.target.value
     this.setState({newEmployee: updatedNewEmployee})
   }
   
@@ -50,18 +47,18 @@ class Employer extends Component {
       fullName: this.state.newEmployee.fullName,
     }
     axios.post(`/api/employers/${employerId}/employees`, payload).then(res => {
-      this.props.history.push(`/api/employers/${employerId}/employees/${res.data._id}`)
+      const newEmployee = res.data
+      const newStateNewEmployee = [...this.state.employees, newEmployee]
+      this.setState({ employees: newStateNewEmployee })
     })
   }
-
-
 
   render() {
     return (
       <div>
         <h2>Hello {this.state.employer.fullName} from your home page</h2>
         <h4>Your employees include:</h4>
-        {this.state.employer.employees.map(employee => (
+        {this.state.employees.map(employee => (
           <div key={employee._id}>
             <Link
               to={`/employers/${this.props.match.params.employerId}/employees/${
@@ -77,7 +74,7 @@ class Employer extends Component {
             <form onSubmit={this.handleSubmit}>
               <div>
                 <label htmlFor="fullName">Full Name: </label>
-                <input onChange={this.handleNewChange} value={this.state.newEmployee.fullName} type="text" name="fullName"/>
+                <input onChange={this.handleChange} value={this.state.newEmployee.fullName} type="text" name="fullName"/>
               </div>
 
               <button type="submit">Create New Employee</button>

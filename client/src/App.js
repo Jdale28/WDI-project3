@@ -29,11 +29,10 @@ class App extends Component {
           <Global />
           <NavBar />
           <Switch>
-            <Route exact path="/login" component={LogInPage} />
-            <Route exact path="/employers" component={EmployerPage} />
-            <Route exact path="/employers/:employerId" component={Employer} />
-            <Route exact path="/employers/:employerId/employees/:employeeId" component={Employee} />
-            {/* <Route exact path="/employer/:employerId" component={EmployeesPage} /> */}
+            <Route exact path="/api/login" component={LogInPage} />
+            <Route exact path="/api/employers" component={EmployerPage} />
+            <Route exact path="/api/employers/:employerId" component={Employer} />
+            <Route exact path="/api/employers/:employerId/employees/:employeeId" component={Employee} />
             <Route path="/" component={HomePage} />
           </Switch>
           <h6>Welcome from APP</h6>

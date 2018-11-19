@@ -18,10 +18,19 @@ class Employee extends Component {
     const employerId = this.props.match.params.employerId;
     const url = `/api/employers/${employerId}/employees/${employeeId}`;
     axios.get(url).then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       this.setState({ employee: res.data, reviews: res.data.reviews });
     });
   };
+
+handleDelete = () => {
+  const employeeId = this.props.match.params.employeeId;
+  const employerId = this.props.match.params.employerId;
+  console.log("Hit One")
+  axios.delete(`/api/employers/${employerId}/employees/${employeeId}`).then(() => {
+    this.props.history.goBack()
+  })
+}
 
   render() {
 
@@ -29,6 +38,8 @@ class Employee extends Component {
       <div>
         <h4>{this.state.employee.fullName}, your reviews are below:</h4>
         <EmployeeReview reviews={this.state.reviews}/>
+        <button onClick={this.handleDelete}>Delete Employee</button>
+        {/* Add danger/confirmation popup */}
       </div>
     );
   }

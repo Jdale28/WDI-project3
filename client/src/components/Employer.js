@@ -53,6 +53,8 @@ class Employer extends Component {
     })
   }
 
+
+
   render() {
     return (
       <div>
@@ -61,12 +63,14 @@ class Employer extends Component {
         {this.state.employees.map(employee => (
           <div key={employee._id}>
             <Link
-              to={`/employers/${this.props.match.params.employerId}/employees/${
-                employee._id
-              }`}
-            >
+              to={`/api/employers/${this.props.match.params.employerId}/employees/${employee._id}`}>
               {employee.fullName}
             </Link>
+            <Link
+              to={`/api/employers/${this.props.match.params.employerId}/employees/${employee._id}`}>
+              Edit Employee
+            </Link>
+            {/* <button>>Edit Employee</button> */}
           </div>
         ))}
 

@@ -27,7 +27,7 @@ class EmployerPage extends Component {
         <h3>All Employers: </h3>
         {this.state.employers.map(employer => (
           <div key={employer._id}>
-            <Link to={`/employers/${employer._id}`}>{employer.fullName}</Link>
+            <Link to={`/api/employers/${employer._id}`}>{employer.fullName}</Link>
           </div>
         ))}
 

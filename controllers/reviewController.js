@@ -35,11 +35,9 @@ const reviewController = {
   create: (req, res) => {
     let employerId = req.params.employerId;
     Employer.findById(employerId).then(employer => {
-      console.log(employer);
       let employeeId = req.params.employeeId;
       Employee.findById(employeeId).then(employee => {
         Review.create(req.body).then(newReview => {
-          console.log(newReview);
           employee.reviews.push(newReview);
           employee.save();
           res.send(newReview);

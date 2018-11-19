@@ -18,7 +18,6 @@ class Employee extends Component {
     const employerId = this.props.match.params.employerId;
     const url = `/api/employers/${employerId}/employees/${employeeId}`;
     axios.get(url).then(res => {
-      // console.log(res.data);
       this.setState({ employee: res.data, reviews: res.data.reviews });
     });
   };
@@ -26,7 +25,6 @@ class Employee extends Component {
 handleDelete = () => {
   const employeeId = this.props.match.params.employeeId;
   const employerId = this.props.match.params.employerId;
-  console.log("Hit One")
   axios.delete(`/api/employers/${employerId}/employees/${employeeId}`).then(() => {
     this.props.history.goBack()
   })

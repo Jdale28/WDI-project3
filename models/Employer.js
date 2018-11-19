@@ -5,6 +5,7 @@ const Employer = new Schema({
     email: String,
     fullName: String,
     isAdmin: Boolean,
+    jobTitle: String,
     employees: [
         {
             type: Schema.Types.ObjectId,

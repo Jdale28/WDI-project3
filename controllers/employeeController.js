@@ -18,11 +18,13 @@ const employeeController = {
       })
   },
   delete: (req, res) => {
-    let employeeId = req.params.employeeId
-    Employee.findByIdAndDelete(employeeId)
-      .then(() => {
-        res.send(200)
-      })
+    const employerId = req.params.employerId
+    const employeeId = req.params.employeeId
+    Employer.findById(employerId).then(employer => {
+      employer.employees.pull(employeeId)
+      employer.save()
+      res.send(200)
+    })
   },
   update: (req, res) => {
     let employeeId = req.params.employeeId

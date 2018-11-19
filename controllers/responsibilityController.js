@@ -34,10 +34,6 @@ const responsibilityController = {
     });
   },
   create: (req, res) => {
-    let employerId = req.params.employerId;
-    Employer.findById(employerId).then(employer => {
-      let employeeId = req.params.employeeId;
-      Employee.findById(employeeId).then(employee => {
         let reviewId = req.params.reviewId;
         Review.findById(reviewId).then(review => {
           Responsibility.create(req.body).then(newResponsibility => {
@@ -46,8 +42,6 @@ const responsibilityController = {
             res.send(newResponsibility);
           });
         });
-      });
-    });
   }
 };
 

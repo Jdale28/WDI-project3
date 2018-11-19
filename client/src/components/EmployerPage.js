@@ -30,8 +30,6 @@ class EmployerPage extends Component {
             <Link to={`/api/employers/${employer._id}`}>{employer.fullName}</Link>
           </div>
         ))}
-
-        <SignUpForm />
       </div>
     );
   }

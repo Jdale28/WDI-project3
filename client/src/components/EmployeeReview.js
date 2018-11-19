@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import axios from "axios";
+import Responsibilities from "./Responsibilities";
 
 const ReviewContainer = styled.div`
   width: 98%;
@@ -35,21 +37,10 @@ margin: auto;
 padding: 0vh 2vw 2vh 2vw;
 `;
 
-const OneResponsibility = styled.div`
-  margin: 0 10vw;
-  padding: 0px;
-  li {
-    width: 100%;
-    text-align: left;
-  }
-`;
-
-
-
 
 class EmployeeReview extends Component {
   render() {
-    const returnReview = this.props.reviews.map(review => {
+    const returnReview = this.props.reviews.map((review, i) => {
       return (
         <ReviewCard>
         <div key={review._id}>
@@ -57,16 +48,12 @@ class EmployeeReview extends Component {
           <h3>"{review.comment}"</h3>
           <div>
             <ResponsibilitiesContainer>
-              <h4>Your List of responsibilities below:</h4>
-              {review.responsibilities.map(responsibility => {
-                return (
-                  <div key={responsibility._id}>
-                    <OneResponsibility>
-                      <li>{responsibility.content}</li>
-                    </OneResponsibility>
-                  </div>
-                );
-              })}
+              <Responsibilities 
+              responsibilities={this.props.reviews[i].responsibilities}
+              employeeId={this.props.employerId} 
+              employerId={this.props.employeeId}
+              reviewId={this.props.reviews[i]._id}
+                />
             </ResponsibilitiesContainer>
           </div>
         </div>

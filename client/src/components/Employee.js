@@ -68,6 +68,9 @@ class Employee extends Component {
     event.preventDefault();
     const payload = {
       employeeFullName: this.state.newReview.employeeFullName,
+      reviewYear: this.state.newReview.reviewYear,
+      comment: this.state.newReview.comment,
+      responsibilities: this.state.newReview.responsibilities,
     };
     axios.post(`/api/employers/${employerId}/employees/${employeeId}/reviews`, payload).then(res => {
       const newReview = res.data;
@@ -90,7 +93,7 @@ class Employee extends Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Perform your review for this year below:</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <form onSubmit={this.handleSubmit}>
@@ -106,19 +109,15 @@ class Employee extends Component {
                 <label htmlFor="comment">Comments</label>
                 <input onChange={this.handleChange} value={this.state.newReview.comment} type="text" name="comment"/>
               </div>
-              <button type="submit">Create New Review</button>
+              <button type="submit">Submit Review</button>
             </form>
-            <h4>Text in a modal</h4>
-            <p>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </p>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
-        <EmployeeReview reviews={this.state.reviews} />
+        <EmployeeReview reviews={this.state.reviews} employeeId={this.props.match.params.employerId} employerId={this.props.match.params.employeeId}></EmployeeReview>/>
         <button onClick={this.handleDelete}>Delete Employee</button>
         {/* Add danger/confirmation popup */}
       </div>

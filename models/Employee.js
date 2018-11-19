@@ -6,6 +6,7 @@ const Employee = new Schema({
     fullName: String,
     jobTitle: String,
     isAdmin: Boolean,
+    password: String,
     reviews: [
         {
             type: Schema.Types.ObjectId,

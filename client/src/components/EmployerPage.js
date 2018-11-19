@@ -20,13 +20,25 @@ class EmployerPage extends Component {
     });
   };
 
+  handleClick = () => {
+    var password = prompt("Enter your Password")
+    if (password !== "th7ind3M") {
+      alert("Access Denied")
+      this.props.history.goBack()
+    } else {
+      this.props.history.goForward()
+    }
+    }
+
   render() {
     return (
       <div>
         <h3>All Employers: </h3>
         {this.state.employers.map(employer => (
           <div key={employer._id}>
-            <Link to={`/api/employers/${employer._id}`}>{employer.fullName}</Link>
+            <Link to={`/api/employers/${employer._id}`} 
+            onClick={this.handleClick}
+            >{employer.fullName}</Link>
           </div>
         ))}
       </div>

@@ -53,7 +53,7 @@ class EmployeeReview extends Component {
       return (
         <ReviewCard>
         <div key={review._id}>
-        <h5>Review Year : {review.reviewYear}   ---- Employer comments:</h5>
+        <h5>Name: {review.employeeFullName} Review Year : {review.reviewYear}   ---- Employer comments:</h5>
           <h3>"{review.comment}"</h3>
           <div>
             <ResponsibilitiesContainer>

@@ -70,6 +70,7 @@ const spencer = new Employer({
     password: 'th7ind3M',
     jobTitle: 'Chief Executive Officer',
     company: 'Google',
+    aboutYou: 'Yo, I like skateboarding and stuff',
     isAdmin: true,
     employees: [jordan, richard]
 })

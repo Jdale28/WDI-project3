@@ -8,6 +8,7 @@ const Employer = new Schema({
     jobTitle: String,
     password: String,
     company: String,
+    aboutYou: String,
     employees: [
         {
             type: Schema.Types.ObjectId,

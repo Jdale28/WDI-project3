@@ -73,7 +73,7 @@ class LogInPage extends Component {
             <input onChange={this.handleChange} value={this.state.newEmployer.password} type="text" name="password" />
           </div>
 
-          <button type="submit">Create New Employer</button>
+          <button type="submit">Login to your profile</button>
         </form>
         <h1>Create a new profile</h1>
         <SignUpForm />

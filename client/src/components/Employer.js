@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import EditEmployerAbout from "./EditEmployerAbout";
 
 const EmployeeContainer = styled.div`
   border: 1px solid black;
@@ -38,7 +39,6 @@ class Employer extends Component {
     const employerId = this.props.match.params.employerId;
     const url = `/api/employers/${employerId}`;
     axios.get(url).then(res => {
-      console.log(res.data);
       this.setState({ employer: res.data, employees: res.data.employees });
     });
   };
@@ -63,11 +63,20 @@ class Employer extends Component {
       this.setState({ employees: newStateNewEmployee });
     });
   };
-
+    
+    updateAboutYou = (payload) => {
+      axios
+      .patch(`/api/employers/${this.state.employer.id}`, payload)
+      .then(() => {
+        console.log("Sup")
+      })
+  }
   render() {
+    console.log(this.state.employer)
     return (
       <div>
-        <h2>Hello {this.state.employer.fullName} from your home page</h2>
+        <h2>Hello, {this.state.employer.fullName}, from your home page</h2>
+        <EditEmployerAbout updateAboutYou={this.updateAboutYou} employer={this.state.employer}/>
         <h4>Your employees include:</h4>
         {this.state.employees.map(employee => (
           <div key={employee._id}>
@@ -89,7 +98,7 @@ class Employer extends Component {
             {/* <button>>Edit Employee</button> */}
           </div>
         ))}
-
+            <h3>Add a New Employee</h3>
         <div>
           <form onSubmit={this.handleSubmit}>
             <div>

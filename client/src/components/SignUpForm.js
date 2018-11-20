@@ -70,7 +70,7 @@ class SignUpForm extends Component {
             <label htmlFor="password">Password: </label>
             <input onChange={this.handleChange} value={this.state.newEmployer.password} type="text" name="password" />
           </div>
-          <button type="submit">Create New Employee</button>
+          <button type="submit">Create New Employer</button>
         </form>
       </div>
     );

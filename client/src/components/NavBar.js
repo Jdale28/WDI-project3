@@ -28,9 +28,9 @@ class NavBar extends Component {
   render() {
     return (
       <NavBarStyles id="nav-container" class="some-class">
-        <Link to="/api/employers">Employers</Link>
+        <Link to="/employers">Employers</Link>
         <div className="right">
-          <Link to="/api/login">Login</Link>
+          <Link to="/login">Login</Link>
           <Link to="/">Home</Link>
         </div>
       </NavBarStyles>

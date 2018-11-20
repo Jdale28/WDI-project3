@@ -73,7 +73,7 @@ class Employer extends Component {
           <div key={employee._id}>
             <EmployeeContainer>
               <Link
-                to={`/api/employers/${
+                to={`/employers/${
                   this.props.match.params.employerId
                 }/employees/${employee._id}`}
               >
@@ -83,7 +83,7 @@ class Employer extends Component {
               </Link>
             </EmployeeContainer>
             {/* <Link
-              to={`/api/employers/${this.props.match.params.employerId}/employees/${employee._id}`}>
+              to={`/employers/${this.props.match.params.employerId}/employees/${employee._id}`}>
               Edit Employee
             </Link> */}
             {/* <button>>Edit Employee</button> */}

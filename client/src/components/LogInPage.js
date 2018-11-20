@@ -47,7 +47,7 @@ class LogInPage extends Component {
       const newEmployer = res.data;
       const newStateNewEmployer = [...this.state.employer, newEmployer];
       this.setState({ employer: newStateNewEmployer });
-      this.props.history.push(`/api/employers`)
+      this.props.history.push(`/employers`)
     });
   };
 

@@ -14,7 +14,8 @@ class LogInPage extends Component {
     newEmployer: {
       fullName: "",
       email: "",
-      jobTitle: ""
+      jobTitle: "",
+      password: ''
     },
     employer: [{}]
   };
@@ -54,7 +55,6 @@ class LogInPage extends Component {
   render() {
     return (
       <div>
-        <h1>Hello from Login Page</h1>
         {/* <h3>Google component says hello below</h3> */}
         {/* <GoogleLogin
           clientId="860589244224-6nnm9u1u030oeqvovpva5iot9lm9lp9i.apps.googleusercontent.com"
@@ -62,24 +62,21 @@ class LogInPage extends Component {
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
         /> */}
-        
-        {/* <SignUpForm /> */}
+        <h1>Already a User? Login</h1>
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="fullName">Full Name: </label>
-            <input onChange={this.handleChange} value={this.state.newEmployer.fullName} type="text" name="fullName"/>
-          </div>
-          <div>
-            <label htmlFor="jobTitle">Job Title: </label>
-            <input onChange={this.handleChange} value={this.state.newEmployer.jobTitle} type="text" name="jobTitle"/>
-          </div>
           <div>
             <label htmlFor="email">Email: </label>
             <input onChange={this.handleChange} value={this.state.newEmployer.email} type="text" name="email" />
           </div>
+          <div>
+            <label htmlFor="password">Password: </label>
+            <input onChange={this.handleChange} value={this.state.newEmployer.password} type="text" name="password" />
+          </div>
 
           <button type="submit">Create New Employer</button>
         </form>
+        <h1>Create a new profile</h1>
+        <SignUpForm />
       </div>
     );
   }

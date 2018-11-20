@@ -68,6 +68,8 @@ const spencer = new Employer({
     email: 'spencer.merryman@gmail.com',
     fullName: 'Spencer Merryman',
     password: 'th7ind3M',
+    jobTitle: 'Chief Executive Officer',
+    company: 'Google',
     isAdmin: true,
     employees: [jordan, richard]
 })

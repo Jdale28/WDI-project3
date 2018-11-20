@@ -20,18 +20,6 @@ class EmployerPage extends Component {
     });
   };
 
-  // checkPassword = () => {
-  //   var password = prompt("Enter your Password");
-  //   if (password !== "th7ind3M") {
-  //     alert("Access Denied");
-  //     this.props.location.pathname(`/`);
-  //     console.log("Denied");
-  //   } else {
-  //     // this.props.history.goForward()
-  //     // console.log("Done")
-  //   }
-  // };
-
   render() {
     return (
       <div>
@@ -44,6 +32,15 @@ class EmployerPage extends Component {
             >
               {employer.fullName}
             </Link>
+            <p>
+              {employer.email}
+            </p>
+            <p>
+              {employer.company}
+            </p>
+            <p>
+              {employer.jobTitle}
+            </p>
           </div>
         ))}
       </div>

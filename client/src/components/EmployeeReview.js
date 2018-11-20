@@ -53,6 +53,7 @@ class EmployeeReview extends Component {
               employeeId={this.props.employerId} 
               employerId={this.props.employeeId}
               reviewId={this.props.reviews[i]._id}
+              // returnReview={this.returnReview}
                 />
             </ResponsibilitiesContainer>
           </div>

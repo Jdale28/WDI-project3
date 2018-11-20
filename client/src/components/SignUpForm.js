@@ -1,6 +1,41 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import styled from "styled-components";
+
+const FullForm = styled.div`
+width: 50%;
+  background: white;
+  border: 1px solid green;
+  margin: 5vh 25vw 0 25vw;
+  .title {
+    text-align: center;
+    margin-left: 2vw;
+    padding-bottom: 3vw;
+  }
+`
+
+
+const SignUpContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: auto;
+  background: white;
+  label {
+    margin-right: 5vw;
+  }
+  input {
+    border: 1px solid black;
+    width: 110%;
+    color: blue;
+  }
+  button {
+    margin: 3vh 0 3vh 4vw;
+  }
+`;
+
 
 class SignUpForm extends Component {
   state = {
@@ -48,7 +83,9 @@ class SignUpForm extends Component {
   render() {
     return (
       <div>
-        <h3>Hello from Sign-up component</h3>
+        <FullForm>
+        <h3 className="title">Sign Up as a new Employer</h3>
+        <SignUpContainer>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="fullName">Full Name: </label>
@@ -70,8 +107,10 @@ class SignUpForm extends Component {
             <label htmlFor="password">Password: </label>
             <input onChange={this.handleChange} value={this.state.newEmployer.password} type="text" name="password" />
           </div>
-          <button type="submit">Create New Employer</button>
+          <button type="submit">Create Your Employer Profile</button>
         </form>
+        </SignUpContainer>
+        </FullForm>
       </div>
     );
   }

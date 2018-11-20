@@ -4,21 +4,21 @@ import axios from "axios";
 import Responsibilities from "./Responsibilities";
 
 const ReviewContainer = styled.div`
-  width: 98%;
-  height: 100vh;
+  width: 100%;
+  height: auto;
   background: white;
-  margin: 2vw 1vw;
+  margin: 2vw 2vh 2vw 2vh;
 `;
 
 const OneReview = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-content: center;
   text-align: center;
   flex-direction: row-reverse;
   width: 100%;
-  height: 40vh;
-  margin: 2vw 2vw;
+  height: auto ;
 `;
 
 const ResponsibilitiesContainer = styled.div`
@@ -32,9 +32,9 @@ const ReviewCard = styled.div`
 display: flex;
 justify-content: center;
 border: 1px solid black;
-width: 38vw;
-margin: auto;
-padding: 0vh 2vw 2vh 2vw;
+width: 45vw;
+margin: 2vw 2vh;
+padding: 2vh 2vw 2vh 2vw;
 `;
 
 
@@ -53,7 +53,6 @@ class EmployeeReview extends Component {
               employeeId={this.props.employerId} 
               employerId={this.props.employeeId}
               reviewId={this.props.reviews[i]._id}
-              // returnReview={this.returnReview}
                 />
             </ResponsibilitiesContainer>
           </div>

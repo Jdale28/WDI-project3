@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 class EmployerPage extends Component {
   state = {
-    employers: []
+    employers: [],
   };
 
   componentDidMount = async () => {
@@ -24,11 +24,10 @@ class EmployerPage extends Component {
     return (
       <div>
         <h3>All Employers: </h3>
-        {this.state.employers.map(employer => (
+        {this.state.employers.map((employer) => (
           <div key={employer._id}>
-            <Link
+            <Link 
               to={`/employers/${employer._id}`}
-              // onClick={this.checkPassword}
             >
               {employer.fullName}
             </Link>

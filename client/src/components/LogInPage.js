@@ -55,14 +55,8 @@ class LogInPage extends Component {
   render() {
     return (
       <div>
-        {/* <h3>Google component says hello below</h3> */}
-        {/* <GoogleLogin
-          clientId="860589244224-6nnm9u1u030oeqvovpva5iot9lm9lp9i.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={responseGoogle}
-          onFailure={responseGoogle}
-        /> */}
-        <h1>Already a User? Login</h1>
+        {/* Version 2 Google Login and Passport */}
+        {/* <h1>Already a User? Login</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="email">Email: </label>
@@ -74,8 +68,7 @@ class LogInPage extends Component {
           </div>
 
           <button type="submit">Login to your profile</button>
-        </form>
-        <h1>Create a new profile</h1>
+        </form> */}
         <SignUpForm />
       </div>
     );

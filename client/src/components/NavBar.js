@@ -8,14 +8,10 @@ const NavBarStyles = styled.div`
   align-items: center;
   background: #457b9d;
   height: 50px;
-
   a {
     text-decoration: none;
     padding-left: 10px;
     color: white;
-    &:active {
-      color: red;
-    }
   }
   .right {
     width: 15vw;
@@ -30,7 +26,7 @@ class NavBar extends Component {
       <NavBarStyles id="nav-container" class="some-class">
         <Link to="/employers">Employers</Link>
         <div className="right">
-          <Link to="/login">Login</Link>
+          <Link to="/login">Sign Up</Link>
           <Link to="/">Home</Link>
         </div>
       </NavBarStyles>

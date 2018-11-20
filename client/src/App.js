@@ -35,7 +35,6 @@ class App extends Component {
             <Route exact path="/employers/:employerId/employees/:employeeId" component={Employee} />
             <Route path="/" component={HomePage} />
           </Switch>
-          <h6>Welcome from APP</h6>
         </div>
       </Router>
     );

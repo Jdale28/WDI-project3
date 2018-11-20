@@ -16,7 +16,7 @@ class Responsibilities extends Component {
     responsibilities: [],
     newResponsibility: {
       content: ""
-    }
+    },
   };
 
   componentDidMount() {
@@ -59,6 +59,7 @@ class Responsibilities extends Component {
       });
   };
 
+
   render() {
     return (
       <div>
@@ -85,6 +86,7 @@ class Responsibilities extends Component {
           </div>
           <button type="submit">Submit Responsibility</button>
         </form>
+
       </div>
     );
   }

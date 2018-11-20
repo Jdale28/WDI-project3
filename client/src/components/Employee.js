@@ -5,6 +5,7 @@ import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
 class Employee extends Component {
+  // Controller for Modal show/hide
   constructor(props, context) {
     super(props, context);
 
@@ -117,7 +118,8 @@ class Employee extends Component {
           </Modal.Footer>
         </Modal>
       </div>
-        <EmployeeReview reviews={this.state.reviews} employeeId={this.props.match.params.employerId} employerId={this.props.match.params.employeeId}></EmployeeReview>/>
+        <EmployeeReview reviews={this.state.reviews} employeeId={this.props.match.params.employerId} employerId={this.props.match.params.employeeId}>
+        </EmployeeReview>
         <button onClick={this.handleDelete}>Delete Employee</button>
         {/* Add danger/confirmation popup */}
       </div>

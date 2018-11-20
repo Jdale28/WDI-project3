@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import EditEmployerAbout from "./EditEmployerAbout";
+import { Link, Redirect } from "react-router-dom";
 
 const EmployeeContainer = styled.div`
   border: 1px solid black;
@@ -20,6 +19,30 @@ const EmployeeContainer = styled.div`
   }
 `;
 
+const IdeaStyles = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 500px;
+  height: 50px;
+  background: #f1faee;
+  margin: 10px 0;
+  button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  input,
+  textarea {
+    background-color: transparent;
+    border: none;
+  }
+  input {
+    height: 100%;
+    font-size: 1.3rem;
+  }
+`;
+
 class Employer extends Component {
   state = {
     newEmployee: {
@@ -27,8 +50,15 @@ class Employer extends Component {
       email: "",
       jobTitle: ""
     },
-    employer: {},
-    employees: [{}]
+    employer: {
+      // password: 'password',
+      aboutYou: {
+        content: ''
+      },
+      newAbout: ''
+    },
+    employees: [{}],
+    authorized: false
   };
 
   componentDidMount() {
@@ -41,6 +71,7 @@ class Employer extends Component {
     axios.get(url).then(res => {
       this.setState({ employer: res.data, employees: res.data.employees });
     });
+    // this.checkPassword() Version 2
   };
 
   handleChange = event => {
@@ -63,20 +94,61 @@ class Employer extends Component {
       this.setState({ employees: newStateNewEmployee });
     });
   };
-    
-    updateAboutYou = (payload) => {
-      axios
-      .patch(`/api/employers/${this.state.employer.id}`, payload)
-      .then(() => {
-        console.log("Sup")
-      })
-  }
+
+  handleChangeAbout = event => {
+    const { value, name } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleUpdate = event => {
+    const employerId = this.props.match.params.employerId;
+    event.preventDefault();
+    console.log("hit one")
+    const payload = {
+      aboutYou: this.state.aboutYou
+    };
+    axios.patch(`/api/employers/${employerId}`, payload).then(res => {
+      console.log("hit two")
+      const newAbout = res.data
+      console.log("hit three")
+      this.setState({ employer: newAbout})
+      console.log("Done")
+    })
+  };
+
+  // Version 2 check for PASSWORDS
+  // checkPassword = () => {
+  //   console.log(this.props.employerPassword)
+  //   var password = prompt("Please enter your password")
+  //   if (password === this.state.employerPassword) {
+  //     alert('Correct')
+  //     this.setState({authorized: true})
+  //     this.props.history.goForward()
+  //   } else if (password !== this.state.employerPassword){
+  //     alert('Access Denied')
+  //     this.setState({authorized: false})
+  //   }
+  // }
+
   render() {
-    console.log(this.state.employer)
+    // Version 2
+    // if (this.state.authorized === false) {
+    //   return (<Redirect to="/" />)
+    // }
     return (
       <div>
         <h2>Hello, {this.state.employer.fullName}, from your home page</h2>
-        <EditEmployerAbout updateAboutYou={this.updateAboutYou} employer={this.state.employer}/>
+          <h6>About You: Feel Free to Edit</h6>
+        <IdeaStyles>
+          <input
+            onBlur={this.handleUpdate}
+            onChange={this.handleChangeAbout}
+            type="text"
+            name="aboutYou"
+            placeholder={this.state.employer.aboutYou}
+            value={this.state.employer.aboutYou.content}
+          />
+        </IdeaStyles>
         <h4>Your employees include:</h4>
         {this.state.employees.map(employee => (
           <div key={employee._id}>
@@ -91,14 +163,9 @@ class Employer extends Component {
                 <h4>Email: {employee.email}</h4>
               </Link>
             </EmployeeContainer>
-            {/* <Link
-              to={`/employers/${this.props.match.params.employerId}/employees/${employee._id}`}>
-              Edit Employee
-            </Link> */}
-            {/* <button>>Edit Employee</button> */}
           </div>
         ))}
-            <h3>Add a New Employee</h3>
+        <h3>Add a New Employee</h3>
         <div>
           <form onSubmit={this.handleSubmit}>
             <div>
@@ -128,7 +195,6 @@ class Employer extends Component {
                 name="email"
               />
             </div>
-
             <button type="submit">Create New Employee</button>
           </form>
         </div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Responsibilities from "./Responsibilities";
+import axios from "axios";
 
 const ReviewContainer = styled.div`
   width: 100%;
@@ -34,9 +35,19 @@ const ReviewCard = styled.div`
   width: 45vw;
   margin: 2vw 2vh;
   padding: 2vh 2vw 2vh 2vw;
+  .deleteButton {
+    height: 23px;
+    color: black;
+  }
 `;
 
+
 class EmployeeReview extends Component {
+
+  deleteReview = (e, reviewId) => {
+    e.preventDefault()
+    this.props.removeReview(reviewId)
+  }
 
   render() {
     const returnReview = this.props.reviews.map((review, i) => {
@@ -56,6 +67,7 @@ class EmployeeReview extends Component {
               </ResponsibilitiesContainer>
             </div>
           </div>
+          <button className="deleteButton" onClick={(e) => this.deleteReview(e, review._id)}>X</button>
         </ReviewCard>
       );
     });

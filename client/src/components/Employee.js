@@ -104,6 +104,20 @@ class Employee extends Component {
       });
   };
 
+  removeReview = (reviewId) => {
+    const employerId = this.props.match.params.employerId;
+    const employeeId = this.props.match.params.employeeId;
+    axios.delete(`/api/employers/${employerId}/employees/${employeeId}/reviews/${reviewId}`).then(res => {
+      const reviewData = [...this.state.reviews]
+      const newReviewData = reviewData.filter(review => {
+        return review._id !== reviewId
+      })
+      this.setState({ reviews: newReviewData})
+    }
+
+    )
+  }
+
   render() {
     return (
       <div>
@@ -168,6 +182,7 @@ class Employee extends Component {
           reviews={this.state.reviews}
           employeeId={this.props.match.params.employerId}
           employerId={this.props.match.params.employeeId}
+          removeReview={this.removeReview}
         />
         {/* Add danger/confirmation popup */}
       </div>

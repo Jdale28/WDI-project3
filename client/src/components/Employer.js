@@ -176,6 +176,18 @@ class Employer extends Component {
     })
   };
 
+  deleteEmployee = (e, employeeId) => {
+    const employerId = this.props.match.params.employerId
+    e.preventDefault()
+    axios.delete(`/api/employers/${employerId}/employees/${employeeId}`).then(res => {
+      const employeeData = [...this.state.employees]
+      const newEmployeeData = employeeData.filter(employee => {
+        return employee._id !== employeeId
+      })
+      this.setState({ employees: newEmployeeData})
+    })
+  }
+
   render() {
     return (
       <div>
@@ -208,6 +220,7 @@ class Employer extends Component {
                 <h4>Job Title: {employee.jobTitle}</h4>
                 <h4>Email: {employee.email}</h4>
               </Link>
+              <button onClick={(e) => this.deleteEmployee(e, employee._id)}>X</button>
             </EmployeeContainer>
           </div>
         ))}

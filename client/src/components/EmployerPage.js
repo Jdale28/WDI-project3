@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const PageContainer = styled.div`
   .title {
-    color: black;
+    color: #172457;
     text-align: center;
     margin-left: 2vw;
     padding-bottom: 3vw;
@@ -19,7 +19,7 @@ const EmployerCard = styled.div`
   margin-left: 30vw;
   margin-bottom: 5vh;
   text-align: center;
-  background-color: green;
+  background-color: #7B84AE;
   color: black;
   padding-top: 5vh;
   a {
@@ -31,6 +31,7 @@ const EmployerCard = styled.div`
   }
   .email {
     font-size: 1.25rem;
+    color: #FFE6AA;
   }
   .company {
     margin-top: 5vh;
@@ -40,6 +41,7 @@ const EmployerCard = styled.div`
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
   .jobTitle {
+    color: #FFE6AA;
     font-size: 1rem;
   }
 `

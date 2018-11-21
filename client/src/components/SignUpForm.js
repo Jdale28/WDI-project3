@@ -5,9 +5,10 @@ import styled from "styled-components";
 
 const FullForm = styled.div`
 width: 50%;
-  background: white;
-  border: 1px solid green;
+  background: #7B84AE;
+  border: 3px solid black;
   margin: 5vh 25vw 0 25vw;
+  color: white;
   .title {
     text-align: center;
     margin-left: 2vw;
@@ -22,8 +23,10 @@ const SignUpContainer = styled.div`
   align-content: center;
   width: 100%;
   height: auto;
-  background: white;
+  background: #7B84AE;
   label {
+    color: black;
+    font-size: 1.75rem;
     margin-right: 5vw;
   }
   input {
@@ -33,6 +36,7 @@ const SignUpContainer = styled.div`
     margin-bottom: 2vh;
   }
   button {
+    color: black;
     margin: 3vh 0 3vh 4vw;
   }
 `;

@@ -11,13 +11,12 @@ import { createGlobalStyle } from "styled-components";
 
 const Global = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Poppins');
-  /* @import url('#'); */
   
   body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: #A8DADC;
+    background: #FFE6AA;
   }
 `;
 

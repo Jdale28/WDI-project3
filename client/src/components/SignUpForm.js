@@ -30,6 +30,7 @@ const SignUpContainer = styled.div`
     border: 1px solid black;
     width: 110%;
     color: blue;
+    margin-bottom: 2vh;
   }
   button {
     margin: 3vh 0 3vh 4vw;
@@ -44,7 +45,10 @@ class SignUpForm extends Component {
       email: "",
       jobTitle: "",
       company: '',
-      password: ''
+      password: '',
+      aboutYou: {
+        content: ''
+      }
     },
     employer: [{}]
   };
@@ -71,7 +75,10 @@ class SignUpForm extends Component {
     const payload = {
       fullName: this.state.newEmployer.fullName,
       jobTitle: this.state.newEmployer.jobTitle,
-      email: this.state.newEmployer.email
+      company: this.state.newEmployer.company,
+      email: this.state.newEmployer.email,
+      password: this.state.newEmployer.password,
+      aboutYou: this.state.newEmployer.aboutYou
     };
     axios.post(`/api/employers/`, payload).then(res => {
       const newEmployer = res.data;
@@ -106,6 +113,10 @@ class SignUpForm extends Component {
           <div>
             <label htmlFor="password">Password: </label>
             <input onChange={this.handleChange} value={this.state.newEmployer.password} type="text" name="password" />
+          </div>
+          <div>
+            <label htmlFor="aboutYou">Short About You: </label>
+            <input onChange={this.handleChange} value={this.state.newEmployer.aboutYou.content} type="text" name="aboutYou" />
           </div>
           <button type="submit">Create Your Employer Profile</button>
         </form>

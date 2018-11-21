@@ -116,7 +116,7 @@ class SignUpForm extends Component {
           </div>
           <div>
             <label htmlFor="password">Password: </label>
-            <input onChange={this.handleChange} value={this.state.newEmployer.password} type="text" name="password" />
+            <input onChange={this.handleChange} value={this.state.newEmployer.password} type="password" name="password" />
           </div>
           <div>
             <label htmlFor="aboutYou">Short About You: </label>

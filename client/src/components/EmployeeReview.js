@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import axios from "axios";
 import Responsibilities from "./Responsibilities";
 
 const ReviewContainer = styled.div`
   width: 100%;
   height: auto;
   background: gray;
-  margin: 2vw 2vh 2vw 2vh;
+  margin: 2vw 0vw;
   border: 3px solid white;
 `;
 

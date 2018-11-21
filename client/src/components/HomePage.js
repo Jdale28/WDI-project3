@@ -4,11 +4,12 @@ import styled from "styled-components";
 const PageContainer = styled.div`
 width: 100%;
   .title {
-    color: white;
+    color: blue;
     text-align: center;
     margin-left: 2vw;
     padding-bottom: 3vw;
     margin-top: 5vh;
+    font-size: 5rem;
   }
   .instructions {
     text-align: center;

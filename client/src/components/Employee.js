@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const EmployeeContainer = styled.div`
   width: 100%;
-  background: #7B84AE;
+  background: #7b84ae;
   border: 3px solid black;
   margin-top: 5vh;
   color: white;
@@ -16,7 +16,7 @@ const EmployeeContainer = styled.div`
     margin-top: 3vh;
     font-size: 2.5rem;
   }
-  Button {
+  button {
     margin-right: 5vw;
     margin-left: 5vw;
     margin-bottom: 3vh;
@@ -108,60 +108,61 @@ class Employee extends Component {
     return (
       <div>
         <EmployeeContainer>
-        <h4>The reviews for {this.state.employee.fullName} are below:</h4>
-        <div>
-          <p>Choose an action: Launch review or Delete employee</p>
+          <h4>The reviews for {this.state.employee.fullName} are below:</h4>
+          <div>
+            <p>Choose an action: Launch review or Delete employee</p>
 
-          <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
-            Launch Employee Review
-          </Button>
+            <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>
+              Launch Employee Review
+            </Button>
 
-          <Button
-            bsStyle="danger"
-            bsSize="small"
-            onClick={e => {
-              if (window.confirm("Are you sure you wish to delete this item?"))
-                this.handleDelete(e);
-            }}
-          >
-            Delete Employee
-          </Button>
-          
+            <Button
+              bsStyle="danger"
+              bsSize="small"
+              onClick={e => {
+                if (
+                  window.confirm("Are you sure you wish to delete this item?")
+                )
+                  this.handleDelete(e);
+              }}
+            >
+              Delete Employee
+            </Button>
 
-          <Modal show={this.state.show} onHide={this.handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>
-                Perform your review for this year below:
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <form onSubmit={this.handleSubmit}>
-                <div>
-                  <label htmlFor="reviewYear">Review Year:</label>
-                  <input
-                    onChange={this.handleChange}
-                    value={this.state.newReview.reviewYear}
-                    type="text"
-                    name="reviewYear"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="comment">Comments</label>
-                  <input
-                    onChange={this.handleChange}
-                    value={this.state.newReview.comment}
-                    type="text"
-                    name="comment"
-                  />
-                </div>
-                <button type="submit">Submit Review</button>
-              </form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={this.handleClose}>Close</Button>
-            </Modal.Footer>
-          </Modal>
-        </div>
+            <Modal show={this.state.show} onHide={this.handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>
+                  Perform your review for this year below:
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <form onSubmit={this.handleSubmit}>
+                  <div>
+                    <label htmlFor="reviewYear">Review Year:</label>
+                    <input
+                      onChange={this.handleChange}
+                      value={this.state.newReview.reviewYear}
+                      type="text"
+                      name="reviewYear"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="comment">Comments</label>
+                    <input
+                      onChange={this.handleChange}
+                      value={this.state.newReview.comment}
+                      type="text"
+                      name="comment"
+                    />
+                  </div>
+                  <button type="submit">Submit Review</button>
+                </form>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button onClick={this.handleClose}>Close</Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
         </EmployeeContainer>
         <EmployeeReview
           reviews={this.state.reviews}

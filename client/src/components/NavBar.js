@@ -7,11 +7,15 @@ const NavBarStyles = styled.div`
   justify-content: space-between;
   align-items: center;
   background: #806015;
-  height: 50px;
+  height: 60px;
+  font-size: 2rem;
   a {
     text-decoration: none;
     padding-left: 10px;
     color: white;
+    &:hover {
+      color: yellow;
+    }
   }
   .right {
     width: 15vw;

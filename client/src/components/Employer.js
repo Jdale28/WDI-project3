@@ -4,29 +4,86 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const EmployeeContainer = styled.div`
-  border: 1px solid black;
-  width: 50%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   text-decoration: none;
   color: white;
   font-size: 1.3rem;
-  padding: 7.5px 5px;
+  padding-right: 3vw;
+  padding-left: 3vw;
+  margin: 3vw;
   a {
     text-decoration: none;
   }
   h2 {
+    font-size: 1.5rem;
     color: red;
     text-decoration: none;
   }
+  h4 {
+    font-size: 1.2rem;
+  }
+  button {
+    color: black;
+    height: 22px;
+    background-color: white;
+    border: 1px solid black;
+  }
+`;
+const Header = styled.div`
+  text-align: center;
+`;
+const H4 = styled.div`
+  font-size: 2rem;
+  margin-bottom: 3vh;
+  text-align: center;
+`;
+const AddEmployeeContainer = styled.div`
+width: 50%;
+  background: #7B84AE;
+  border: 3px solid black;
+  margin: 5vh 25vw 0 25vw;
+  color: white;
+  .title {
+    text-align: center;
+    margin-left: 2vw;
+    padding-bottom: 3vw;
+  }
 `;
 
-const IdeaStyles = styled.div`
+const SignUpContainer = styled.div`
   display: flex;
-  position: relative;
-  flex-direction: column;
-  width: 500px;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: auto;
+  background: #7B84AE;
+  label {
+    color: black;
+    font-size: 1.75rem;
+    margin-right: 5vw;
+  }
+  input {
+    border: 1px solid black;
+    width: 110%;
+    color: blue;
+    margin-bottom: 2vh;
+  }
+  button {
+    color: black;
+    margin: 3vh 0 3vh 4vw;
+  }
+`;
+
+const AboutStyles = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  width: 90%;
   height: 50px;
   background: #f1faee;
-  margin: 10px 0;
+  margin: 2vh 5vw;
   button {
     position: absolute;
     top: 5px;
@@ -38,9 +95,18 @@ const IdeaStyles = styled.div`
     border: none;
   }
   input {
+    width: 100%;
     height: 100%;
     font-size: 1.3rem;
   }
+`;
+
+const EmployeesContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 `;
 
 class Employer extends Component {
@@ -113,9 +179,11 @@ class Employer extends Component {
   render() {
     return (
       <div>
-        <h2>Hello, {this.state.employer.fullName}, from your home page</h2>
-          <h6>About You: Feel Free to Edit</h6>
-        <IdeaStyles>
+        <Header>
+        <h1>Welcome, {this.state.employer.fullName}, to your profile</h1>
+          <h5>Your About Bar : Feel Free to Edit</h5>
+          </Header>
+        <AboutStyles>
           <input
             onBlur={this.handleUpdate}
             onChange={this.handleChangeAbout}
@@ -124,8 +192,10 @@ class Employer extends Component {
             placeholder={this.state.employer.aboutYou}
             value={this.state.employer.aboutYou.content}
           />
-        </IdeaStyles>
-        <h4>Your employees include:</h4>
+        </AboutStyles>
+
+        <H4>Your employees include:</H4>
+        <EmployeesContainer>
         {this.state.employees.map(employee => (
           <div key={employee._id}>
             <EmployeeContainer>
@@ -141,7 +211,11 @@ class Employer extends Component {
             </EmployeeContainer>
           </div>
         ))}
-        <h3>Add a New Employee</h3>
+        </EmployeesContainer>
+
+        <AddEmployeeContainer>
+        <h3 className="title">Add a New Employee</h3>
+        <SignUpContainer>
         <div>
           <form onSubmit={this.handleSubmit}>
             <div>
@@ -174,6 +248,8 @@ class Employer extends Component {
             <button type="submit">Create New Employee</button>
           </form>
         </div>
+        </SignUpContainer>
+        </AddEmployeeContainer>
       </div>
     );
   }

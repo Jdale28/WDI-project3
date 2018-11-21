@@ -21,7 +21,7 @@ For this project, I wanted to try and tackle a pain point that every employer an
 ## Wireframe
 
 _Link to figma wireframe:_
-[Figma Wireframe](#https://ibb.co/kBYnPq)
+[Figma Wireframe](https://ibb.co/kBYnPq)
 
 _Link to workflow Trello Board:_
 [Trello Board](https://trello.com/b/fK1uIyyx/outperform)

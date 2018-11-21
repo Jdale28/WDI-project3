@@ -5,9 +5,29 @@ import axios from "axios";
 const OneResponsibility = styled.div`
   margin: 0 10vw;
   padding: 0px;
+  color: blue;
   li {
     width: 100%;
     text-align: left;
+  }
+`;
+const H4 = styled.div`
+  color: blue;
+  font-size: 1.5rem;
+  margin-bottom: 1vh;
+`;
+const Button = styled.div`
+  color: black;
+`;
+const Input = styled.div`
+  font-size: 1.25rem;
+  color: white;
+  margin-right: 2vw;
+  input {
+    margin-top: 2vh;
+    margin-left: 1vw;
+    margin-bottom: 2vh;
+    color: black;
   }
 `;
 
@@ -63,7 +83,7 @@ class Responsibilities extends Component {
   render() {
     return (
       <div>
-        <h4>Your List of responsibilities below:</h4>
+        <H4>Your List of responsibilities below:</H4>
         {this.state.responsibilities.map(responsibility => {
           return (
             <div key={responsibility._id}>
@@ -76,6 +96,7 @@ class Responsibilities extends Component {
 
         <form onSubmit={this.handleSubmit}>
           <div>
+            <Input>
             <label htmlFor="content">Add a Responsibility: </label>
             <input
               onChange={this.handleChange}
@@ -83,8 +104,11 @@ class Responsibilities extends Component {
               type="text"
               name="content"
             />
+            </Input>
           </div>
-          <button type="submit">Submit Responsibility</button>
+          <Button>
+          <button className="submitButton" type="submit">Submit Responsibility</button>
+          </Button>
         </form>
 
       </div>

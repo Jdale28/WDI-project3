@@ -5,15 +5,15 @@ const Review = require("../models/Review");
 const reviewController = {
   index: (req, res) => {
     let employeeId = req.params.employeeId;
-    Employee.findById(employeeId)
-      .populate("reviews")
+    Employee.findById(employeeId).populate("reviews")
       .then(employee => {
         res.send(employee.reviews);
       });
   },
   show: (req, res) => {
     let reviewId = req.params.reviewId;
-    Review.findById(reviewId).then(review => {
+    Review.findById(reviewId).populate('responsibilities')
+    .then(review => {
       res.send(review);
     });
   },

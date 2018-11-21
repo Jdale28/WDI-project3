@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const EmployeeContainer = styled.div`
   border: 1px solid black;
@@ -51,7 +51,6 @@ class Employer extends Component {
       jobTitle: ""
     },
     employer: {
-      // password: 'password',
       aboutYou: {
         content: ''
       },
@@ -71,7 +70,6 @@ class Employer extends Component {
     axios.get(url).then(res => {
       this.setState({ employer: res.data, employees: res.data.employees });
     });
-    // this.checkPassword() Version 2
   };
 
   handleChange = event => {
@@ -103,38 +101,16 @@ class Employer extends Component {
   handleUpdate = event => {
     const employerId = this.props.match.params.employerId;
     event.preventDefault();
-    console.log("hit one")
     const payload = {
       aboutYou: this.state.aboutYou
     };
     axios.patch(`/api/employers/${employerId}`, payload).then(res => {
-      console.log("hit two")
       const newAbout = res.data
-      console.log("hit three")
       this.setState({ employer: newAbout})
-      console.log("Done")
     })
   };
 
-  // Version 2 check for PASSWORDS
-  // checkPassword = () => {
-  //   console.log(this.props.employerPassword)
-  //   var password = prompt("Please enter your password")
-  //   if (password === this.state.employerPassword) {
-  //     alert('Correct')
-  //     this.setState({authorized: true})
-  //     this.props.history.goForward()
-  //   } else if (password !== this.state.employerPassword){
-  //     alert('Access Denied')
-  //     this.setState({authorized: false})
-  //   }
-  // }
-
   render() {
-    // Version 2
-    // if (this.state.authorized === false) {
-    //   return (<Redirect to="/" />)
-    // }
     return (
       <div>
         <h2>Hello, {this.state.employer.fullName}, from your home page</h2>

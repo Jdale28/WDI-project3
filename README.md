@@ -29,7 +29,7 @@ _Link to workflow Trello Board:_
 _Link to gitHub repo:_
 [GitHub Repository](https://github.com/Jdale28/WDI-project3)
 
-_Link to ERD:_[ERD](https://www.lucidchart.com/documents/edit/ff1bf3ea-2263-49ec-8b94-929f0f83aadb/0)
+_Link to ERD:_[ERD](https://www.lucidchart.com/invitations/accept/1114c126-4cdc-479e-9f49-aecd3a13010a)
 
 
 ## Future Development

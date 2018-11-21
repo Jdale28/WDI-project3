@@ -30,7 +30,6 @@ _Link to gitHub repo:_
 [GitHub Repository](https://github.com/Jdale28/WDI-project3)
 
 _Link to ERD:_[ERD](https://www.lucidchart.com/documents/edit/ff1bf3ea-2263-49ec-8b94-929f0f83aadb/0)
-![ERD](public/images/Lucid-Charts-ERD.png)
 
 
 ## Future Development

@@ -17,6 +17,7 @@ const Global = createGlobalStyle`
     padding: 0;
     font-family: 'Poppins', sans-serif;
     background: #FFE6AA;
+    
   }
 `;
 
